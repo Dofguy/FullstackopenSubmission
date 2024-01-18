@@ -2,13 +2,16 @@ const Header = ({ course }) => <h1>{course}</h1>
 
 const Total = ({ parts }) => {
   console.log(parts)
-  let totalAmount = 0
-  for (let i = 0; i < parts.length; i++) {
-    totalAmount += parts[i].exercises
-  }
+
+  const total = parts.reduce((sum, part) => {
+    console.log('what is happening', sum, part)
+    return sum + part.exercises
+  }, 0)
 
   return (
-    <b>Total of {totalAmount} exercises</b>
+    <b>
+      total of {total} exercises
+    </b>
   )
 }
 
